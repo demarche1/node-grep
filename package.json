@@ -1,0 +1,27 @@
+{
+  "name": "@demarche1/node-grep",
+  "version": "1.0.0",
+  "description": "node-grap is a version of original system grap feature",
+  "main": "src/index.js",
+  "bin": {
+    "@demarche1/node-grep": "bin/node-grep",
+    "node-grep": "bin/node-grep"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "node-grep"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alessandro Demarche da Silva",
+  "license": "MIT",
+  "dependencies": {
+    "arg": "^5.0.1",
+    "cli-color": "^2.0.1",
+    "esm": "^3.2.25"
+  }
+}
