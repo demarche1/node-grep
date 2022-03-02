@@ -17,7 +17,7 @@ Simple node grep clone with node streams.
 | argument | short | description |
 | :---: | :---: | :---: |
 | --file | -f | File(Required) |
-| --search | -s | Search word(Optional) |
+| --search | -s | Search word(Required) |
 
 ## Author
 
