@@ -9,7 +9,7 @@ Simple node grep clone with node streams.
 
     cd node-grep
 
-    npm link
+    npm i && npm link
 
     node-grep -f my-file.csv -s word
 ```
