@@ -1,25 +1,24 @@
 import { createReadStream } from "fs";
-import readline from "readline";
+import { createInterface } from "readline";
+import { error } from "./utils";
 import clc from "cli-color";
 
-export async function grep(args) {
+export async function grep({ file, searchTerm }) {
   const cwd = process.cwd();
-  const fileToRead = `${cwd}/${args.file}`;
+  const fileToRead = `${cwd}/${file}`;
   const streams = createReadStream(fileToRead);
+  const pattern = new RegExp(searchTerm);
 
   streams.on("error", () => {
-    console.error(clc.bgRed(clc.white(`${args.file} does not exists`)));
-    process.exit(1);
+    error(`${file} does not exists`);
   });
 
-  const rl = readline.createInterface({
+  const rl = createInterface({
     input: streams,
     crlfDelay: Infinity,
   });
 
   for await (const line of rl) {
-    console.log(
-      line.toString().replace(args.searchTerm, clc.red(args.searchTerm))
-    );
+    console.log(line.toString().replace(pattern, clc.red(searchTerm)));
   }
 }
